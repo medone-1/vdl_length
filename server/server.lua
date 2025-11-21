@@ -42,7 +42,6 @@ local function LoadAndApplyScale(src)
             scale = math.floor(scale * 10 + 0.5) / 10 -- round to 1 decimal
             scale = math.max(Config.MinScale, math.min(Config.MaxScale, scale))
             TriggerClientEvent("vdl_length:apply", src, scale)
-            print("^6[vdl_length]^0 Applied scale for charID " .. charId .. ": " .. scale)
         end
     )
 end
