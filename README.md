@@ -39,11 +39,11 @@ The value is saved in the database and automatically re-applied on every spawn, 
 ```sql
 -- vdl_length SQL Setup
 
--- 1) Add column if it doesn't exist
+-- 1) Add the 'tail_length' column if it does not exist
 ALTER TABLE `characters`
-ADD COLUMN IF NOT EXISTS `tail_length` FLOAT DEFAULT 1.0;
+ADD COLUMN IF NOT EXISTS `tail_length` DECIMAL(3,1) NOT NULL DEFAULT 1.0;
 
--- 2) Force default value for existing characters
+-- 2) Ensure all existing rows have a valid default value
 UPDATE `characters`
 SET `tail_length` = 1.0
 WHERE `tail_length` IS NULL;
